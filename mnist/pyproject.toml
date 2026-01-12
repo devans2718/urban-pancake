@@ -1,65 +1,7 @@
-[build-system]
-requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "mnist-classifier"
 version = "0.1.0"
 description = "MNIST digit classifier with GPU support using PyTorch"
 readme = "README.md"
-requires-python = ">=3.8"
-license = {text = "MIT"}
-authors = [
-    {name = "Your Name", email = "your.email@example.com"}
-]
-keywords = ["mnist", "pytorch", "deep-learning", "cnn", "gpu"]
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Developers",
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Topic :: Scientific/Engineering :: Artificial Intelligence",
-]
 
-dependencies = [
-    "torch>=2.0.0",
-    "torchvision>=0.15.0",
-    "numpy>=1.24.0",
-    "matplotlib>=3.7.0",
-    "Pillow>=9.5.0",
-    "seaborn>=0.12.0",
-    "scikit-learn>=1.3.0",
-]
 
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.0.0",
-    "black>=23.0.0",
-    "flake8>=6.0.0",
-    "ipython>=8.0.0",
-    "jupyter>=1.0.0",
-]
-
-[project.urls]
-Homepage = "https://github.com/yourusername/mnist-classifier"
-Repository = "https://github.com/yourusername/mnist-classifier"
-Documentation = "https://github.com/yourusername/mnist-classifier#readme"
-
-[tool.setuptools]
-packages = ["mnist_classifier"]
-
-[tool.black]
-line-length = 100
-target-version = ['py38', 'py39', 'py310', 'py311']
-include = '\.pyi?$'
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-python_files = "test_*.py"
-python_classes = "Test*"
-python_functions = "test_*"

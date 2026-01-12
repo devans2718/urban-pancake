@@ -27,3 +27,9 @@ logs/
 
 # Sandbox
 sandbox/
+
+# Data
+data/
+
+# output
+output/

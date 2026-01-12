@@ -4,14 +4,14 @@ A complete PyTorch implementation of a Convolutional Neural Network for MNIST di
 
 ## Project Structure
 
-```
+```text
 mnist-classifier/
 ├── mnist_classifier.py    # Main training script
 ├── inference.py           # Inference and testing script
 ├── pyproject.toml         # Project configuration and dependencies
 ├── data/                 # MNIST dataset (auto-downloaded)
-├── best_mnist_model.pth  # Best model checkpoint (after training)
-└── final_mnist_model.pth # Final model checkpoint (after training)
+├── outputs/best_mnist_model.pth  # Best model checkpoint (after training)
+└── outputs/final_mnist_model.pth # Final model checkpoint (after training)
 ```
 
 ## Workflow Overview
@@ -65,7 +65,8 @@ uv run python mnist_classifier.py
 5. **Model Saving**: Saves best model (highest test accuracy) and final model
 
 **Expected output:**
-```
+
+```text
 Using device: cuda
 GPU: NVIDIA GeForce RTX 3080
 
@@ -96,6 +97,7 @@ uv run python inference.py
 ```
 
 This script will:
+
 - Load the best trained model
 - Test on 10 random samples from the test set
 - Display predictions with confidence scores
@@ -119,7 +121,7 @@ prediction, confidence, probabilities = predict(model, img_tensor, device)
 
 ## Model Architecture
 
-```
+```text
 MNISTNet(
   Conv2D(1, 32, 3x3) + ReLU + MaxPool(2x2)
   Conv2D(32, 64, 3x3) + ReLU + MaxPool(2x2)
@@ -144,7 +146,7 @@ The code includes several GPU optimization techniques:
 
 - **Training Accuracy**: ~99.5% after 10 epochs
 - **Test Accuracy**: ~98.5-99.0%
-- **Training Time**: 
+- **Training Time**:
   - GPU (RTX 3080): ~2-3 min/epoch
   - CPU: ~15-20 min/epoch
 
@@ -163,7 +165,7 @@ learning_rate = 0.001   # Initial learning rate
 ### Resume Training from Checkpoint
 
 ```python
-checkpoint = torch.load('best_mnist_model.pth')
+checkpoint = torch.load(OUTPUT / 'mnist/best_mnist_model.pth')
 model.load_state_dict(checkpoint['model_state_dict'])
 optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
 start_epoch = checkpoint['epoch']
@@ -196,6 +198,7 @@ Then run: `tensorboard --logdir=runs`
 ### GPU Not Detected
 
 Check CUDA installation:
+
 ```bash
 nvidia-smi
 python -c "import torch; print(torch.cuda.is_available())"
@@ -204,6 +207,7 @@ python -c "import torch; print(torch.cuda.is_available())"
 ### Out of Memory Error
 
 Reduce batch size in the script:
+
 ```python
 batch_size = 32  # or 16
 ```

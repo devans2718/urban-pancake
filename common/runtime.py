@@ -4,8 +4,6 @@ Designed for a uv-managed mono-repo where scripts may run from many locations.
 Keeps logic small, dependency-light, and safe to import.
 """
 
-from __future__ import annotations
-
 from dataclasses import asdict, dataclass
 import os
 import platform
