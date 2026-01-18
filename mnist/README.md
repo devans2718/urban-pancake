@@ -1,5 +1,7 @@
 # MNIST Classifier with GPU Support
 
+**NOTE**: This *entire* project directory (except this note) was created by Claude to help me verify that my workflow works. The workflow is Laptop SSH -> Desktop SSH Server -> Desktop WSL. Running the scripts in this project confirm that I can "use my desktop gpu from my laptop".
+
 A complete PyTorch implementation of a Convolutional Neural Network for MNIST digit classification with GPU acceleration.
 
 ## Project Structure
